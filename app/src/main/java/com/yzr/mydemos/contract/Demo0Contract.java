@@ -1,0 +1,16 @@
+package com.yzr.mydemos.contract;
+
+/**
+ * 契约类
+ * Created by Android-YZR on 2016/11/29.
+ */
+
+public interface Demo0Contract {
+    interface Presenter extends BasePresenter{
+
+    }
+
+    interface View extends BaseView<Presenter>{
+
+    }
+}
