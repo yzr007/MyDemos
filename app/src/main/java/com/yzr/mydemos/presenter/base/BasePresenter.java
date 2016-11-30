@@ -1,4 +1,4 @@
-package com.yzr.mydemos.contract;
+package com.yzr.mydemos.presenter.base;
 
 /**
  * MVP架构中的Presenter

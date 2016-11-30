@@ -1,4 +1,4 @@
-package com.yzr.mydemos.contract;
+package com.yzr.mydemos.ui;
 
 /**
  * MVP架构中的View的接口

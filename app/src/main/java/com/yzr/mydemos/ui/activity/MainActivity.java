@@ -1,13 +1,13 @@
-package com.yzr.mydemos;
+package com.yzr.mydemos.ui.activity;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.yzr.mydemos.ui.BaseActivity;
+import com.yzr.mydemos.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
  * Created by Android-YZR on 2016/11/28.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     @BindView(R.id.title_toolbar)
     TextView titleToolbar;
     @BindView(R.id.rightbtn_toolbar)
@@ -31,9 +31,12 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout dlLeft;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
         ButterKnife.bind(this);
     }
 }
