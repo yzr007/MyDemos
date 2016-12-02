@@ -1,0 +1,19 @@
+package com.yzr.mydemos.contract;
+
+import com.yzr.mydemos.presenter.base.BasePresenter;
+import com.yzr.mydemos.ui.BaseView;
+
+/**
+ * 契约类
+ * Created by Android-YZR on 2016/11/29.
+ */
+
+public interface MainContract {
+    interface Presenter extends BasePresenter {
+
+    }
+
+    interface View extends BaseView<Presenter> {
+        void menuSelect(int item);
+    }
+}

@@ -13,10 +13,9 @@ public abstract class BaseActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        initPresenter();
         initView();
     }
-    protected abstract void initPresenter() ;
+
     protected abstract int getLayoutId() ;
     protected abstract void initView() ;
 }

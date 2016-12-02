@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.yzr.mydemos.contract.MainContract;
 import com.yzr.mydemos.ui.BaseActivity;
 import com.yzr.mydemos.R;
 
@@ -25,7 +26,7 @@ import butterknife.ButterKnife;
  * Created by Android-YZR on 2016/11/28.
  */
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements MainContract.View{
     @BindView(R.id.title_toolbar)
     TextView titleToolbar;
     @BindView(R.id.tl_custom)
@@ -74,5 +75,10 @@ public class MainActivity extends BaseActivity {
          return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+
     }
 }
