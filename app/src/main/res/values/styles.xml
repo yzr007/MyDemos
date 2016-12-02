@@ -1,11 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    //当使用该主题时，要为layout的根布局或者最顶部控件设置fitsSystemWindow = true; fitsSystemWindow作用是不降内容侵占actionbar或者状态栏的区域
+    <style name="StatusAndNavigationTranslucentTheme" parent="AppTheme">//状态栏沉浸式主题，为需要使用沉浸式状态栏的Activity设置
+    </style>
 </resources>

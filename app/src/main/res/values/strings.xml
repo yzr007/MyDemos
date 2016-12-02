@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Demos</string>
+    <string name="dl_open">抽屉列表打开</string>
+    <string name="dl_close">抽屉列表关闭</string>
 </resources>
