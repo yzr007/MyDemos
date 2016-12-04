@@ -37,6 +37,11 @@ public class Demo0Fragment extends BaseFragment implements Demo0Contract.View{
     }
 
     @Override
+    protected void bindPresenter() {
+        new Demo0Presenter(this);
+    }
+
+    @Override
     public void setPresenter(Demo0Contract.Presenter presenter) {
         mPresenter = presenter;
     }

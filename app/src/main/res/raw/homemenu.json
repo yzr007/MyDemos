@@ -1,0 +1,32 @@
+[
+  {
+    "name": "沉浸式状态栏",
+    "selected": true,
+    "index":0
+  },
+  {
+    "name": "Demo1",
+    "selected": true,
+    "index":1
+  },
+  {
+    "name": "Demo2",
+    "selected": true,
+    "index":2
+  },
+  {
+    "name": "Demo3",
+    "selected": true,
+    "index":3
+  },
+  {
+    "name": "Demo4",
+    "selected": true,
+    "index":4
+  },
+  {
+    "name": "Demo5",
+    "selected": true,
+    "index":5
+  }
+]

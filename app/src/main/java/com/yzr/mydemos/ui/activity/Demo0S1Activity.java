@@ -20,4 +20,9 @@ public class Demo0S1Activity extends BaseActivity {
         setTheme(R.style.StatusAndNavigationTranslucentTheme);
     }
 
+    @Override
+    protected void bindPresenter() {
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.yzr.mydemos.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -10,14 +11,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yzr.mydemos.contract.MainContract;
+import com.yzr.mydemos.model.HomeMenu;
+import com.yzr.mydemos.presenter.MainPresenter;
 import com.yzr.mydemos.ui.BaseActivity;
 import com.yzr.mydemos.R;
+import com.yzr.mydemos.ui.adapter.MenuAdapter;
+import com.yzr.mydemos.ui.fragment.Demo0Fragment;
+import com.yzr.mydemos.utils.ActivityUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +50,11 @@ public class MainActivity extends BaseActivity implements MainContract.View{
     @BindView(R.id.dl_left)
     DrawerLayout dlLeft;
 
+    private MainContract.Presenter mPresenter;
     private ActionBarDrawerToggle mDrawerToggle;
+    private MenuAdapter menuAdapter;
+    private List<HomeMenu> homeMenuList;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -54,13 +70,26 @@ public class MainActivity extends BaseActivity implements MainContract.View{
         setSupportActionBar(tlCustom);
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        homeMenuList = new ArrayList<>();
+        menuAdapter = new MenuAdapter(this,homeMenuList);
+        lvMenu.setAdapter(menuAdapter);
+        lvMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mPresenter.menuSelect(i,getSupportFragmentManager().findFragmentById(R.id.ll_fragment));
+                dlLeft.closeDrawer(Gravity.LEFT);
+            }
+        });
+        mPresenter.initMenu(homeMenuList);
+        switchFragment(Demo0Fragment.newInstance());
     }
 
-    private void addFragment(FragmentManager fragmentManager,Fragment fragment,int frameId){
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(frameId, fragment);
-        transaction.commit();
+    @Override
+    protected void bindPresenter() {
+        new MainPresenter(this);
     }
+
 
     //onCreate之后执行 Activity彻底启动起来
     @Override
@@ -79,6 +108,22 @@ public class MainActivity extends BaseActivity implements MainContract.View{
 
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
-
+        mPresenter = presenter;
     }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void updateMenu() {
+        menuAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void switchFragment(Fragment fragment) {
+        ActivityUtils.replaceFragment(getSupportFragmentManager(),fragment,R.id.ll_fragment);
+    }
+
 }

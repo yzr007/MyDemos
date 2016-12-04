@@ -12,14 +12,22 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseFragment extends Fragment{
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bindPresenter();
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(getLayoutId(),container, false);
         setHasOptionsMenu(true);
+        initView();
         return root;
     }
 
     protected abstract int getLayoutId() ;
     protected abstract void initView() ;
+    protected abstract void bindPresenter() ;
 }
