@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000ff"
+    android:fitsSystemWindows="true">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:text="我是顶部"
+        android:gravity="left|top"
+        android:background="#00ffff" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="1、如果将windowTranslucentStatus和windowTranslucentNavigation设为true,沉浸的就是根布局的背景\n2、如果设为false,5.0以上可以设置颜色来实现沉浸式状态栏，但是某些OS上，setStatusBarColor和setNavigationBarColor会无效\n3、不推荐使用在layout中为顶部控件和底部控件增加android:fitsSystemWindows='true'来实现沉浸式，因为可能会对底部控件无效，有NavigationBar的系统会出现适配问题，在父布局设置没有问题\n4、不考虑NavigationBar可以使用3中的方法，而且基本可以适配所有4.4以上的系统\n5、使用1中的方法最简单而且不存在适配问题"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:text="我是底部"
+        android:gravity="left|bottom"
+        android:background="#00ffff" />
+</RelativeLayout>

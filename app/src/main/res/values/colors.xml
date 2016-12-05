@@ -6,4 +6,7 @@
 
     <color name="font_color_dark">#000000</color>
     <color name="font_color_light">#685151</color>
+    
+    <color name="bg_btn_normal">#009ACD</color>
+    <color name="bg_btn_pressed">#00BFFF</color>
 </resources>

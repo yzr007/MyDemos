@@ -23,11 +23,11 @@ public abstract class BaseFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(getLayoutId(),container, false);
         setHasOptionsMenu(true);
-        initView();
+        initView(root);
         return root;
     }
 
     protected abstract int getLayoutId() ;
-    protected abstract void initView() ;
+    protected abstract void initView(View rootView) ;
     protected abstract void bindPresenter() ;
 }

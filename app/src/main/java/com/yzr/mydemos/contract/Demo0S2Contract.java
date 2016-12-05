@@ -8,13 +8,12 @@ import com.yzr.mydemos.ui.BaseView;
  * Created by Android-YZR on 2016/11/29.
  */
 
-public interface Demo0Contract {
+public interface Demo0S2Contract {
     interface Presenter extends BasePresenter {
 
     }
 
     interface View extends BaseView<Presenter> {
-        void toDemo0S1Activity();
-        void toDemo0S2Activity();
+        void initStatusAndNavigationBar();
     }
 }
